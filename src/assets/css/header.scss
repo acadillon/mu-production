@@ -1,0 +1,27 @@
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mu-sticky--wrapper{
+    font-family: 'Piek';
+    font-size: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    span{
+        &#Diff,
+        &#Art{
+            grid-column: span 2;
+        }
+        &#and{
+            font-family: Helvetica, Arial, sans-serif;
+        }
+    }
+}
+
+
+.menu-wrapper{
+    margin-left: 20px;
+}
