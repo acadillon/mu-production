@@ -1,27 +1,48 @@
-header{
+.cover-wrapper {
+    border: 1px solid blue;
+    overflow: hidden;
+    height: calc(100vh - 50px);
+}
+
+.cover {
+    height: 80%;
+    border: 1px solid greenyellow;
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+header {
     display: flex;
     justify-content: space-between;
 }
 
-.mu-sticky--wrapper{
+#mu-sticky--wrapper {
     font-family: 'Piek';
     font-size: 20px;
+    border: 1px solid violet;
 
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-    span{
-        &#Diff,
-        &#Art{
-            grid-column: span 2;
-        }
-        &#and{
-            font-family: Helvetica, Arial, sans-serif;
+    div {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+
+        span {
+
+            &#Diff,
+            &#Art {
+                grid-column: span 2;
+            }
+
+            &#and {
+                font-family: Helvetica, Arial, sans-serif;
+            }
         }
     }
 }
 
 
-.menu-wrapper{
+.menu-wrapper {
     margin-left: 20px;
 }

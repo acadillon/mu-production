@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+
 import Header from './components/Layout/Header';
 import MaxiMenu from './components/Menus/MaxiMenu';
+
 
 
 
@@ -12,8 +14,9 @@ const App = () => {
 
   // *** GET COVER ******************************************************************
   // ********************************************************************************
-  const [abouts, setAbout] = useState([]);
+  const [abouts, setAbouts] = useState([]);
   const [error, setError] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // ** Datas about
   useEffect(() => {
@@ -21,7 +24,7 @@ const App = () => {
     axios
       .get("http://localhost:1337/api/abouts?populate=*")
       .then(({ data }) => {
-        setAbout(data.data);
+        setAbouts(data.data);
       })
       .catch((error) => setError(error));
   }, []);
@@ -31,19 +34,27 @@ const App = () => {
   }
   // ********************************************************************************
 
+  // Check if imageLoad
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+
+
 
   return (
     <>
-      {/* {abouts.map(({ id, attributes }, index) => (
-        {
-          attributes.Images.data.map((image, index) => (
-            image.map((image, index) => (
-              <img src={'http://localhost:1337' + image.attributes.url} alt={image.attributes.name} />
-            ))
-          ))
-        }
-      ))} */}
-      <Header />
+
+      <div className="cover-wrapper">
+        {abouts.map(({ id, attributes }, index) => (
+          <div className="cover" key={id}>
+            <img src={'http://localhost:1337' + attributes.Cover.data.attributes.url} alt="Cover" onLoad={handleImageLoad}/>
+          </div>
+        ))}
+        {imageLoaded && <Header />}
+      </div>
+
+      <h2 className='big-title'>Menu</h2>
       <MaxiMenu />
     </>
   )

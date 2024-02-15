@@ -24,7 +24,7 @@ const Work = ({ title, customHtml, body, sliderImages, isOpen, onClick }) => {
             </button>
 
             <div ref={contentHeight} className={`answer-container ${isOpen ? 'active' : ''}`}
-            style={{ height: containerHeight }}a
+            style={{ height: containerHeight }}
             >
                 {isOpen && (
                     <div className="accordeon-content">
