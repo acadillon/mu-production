@@ -4,7 +4,8 @@ import Work from '../Content/Work';
 import Actus from '../Content/Actus';
 import About from '../Content/About';
 
-
+// Import styles
+import '../../assets/css/maximenu.scss';
 
 const MaxiMenu = ({ }) => {
 
@@ -62,11 +63,16 @@ const MaxiMenu = ({ }) => {
     };
     // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-    
+    const handleMenuButtonClick = () => {
+        const bottomElement = document.body; // Element au bas de la page
+        bottomElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    };
+
     return (
         <>
-            <div className='toggles-container'>
-
+            <button id='menu-btn' onClick={handleMenuButtonClick}>MENU</button>
+            <div className='maximenu-wrapper'>
+                <h2 id='menu'>MENU</h2>
                 <About isActive={aboutActive} onClick={handleAboutClick} />
                 <Actus isActive={actusActive} onClick={handleActusClick} />
 

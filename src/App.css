@@ -1,6 +1,20 @@
+/* // ------------------------------------------------------------
+// APP
+// ------------------------------------------------------------ */
+
 #root {
   margin: 0 auto;
 }
+
+body{
+  overflow-x: hidden;
+}
+
+main{
+  padding: 0px 20px;
+  padding-bottom: 0px;
+}
+
 
 
 .accordeon-wrapper,
@@ -15,3 +29,4 @@
   width: 100%;
   transition: height 1s ease;
 }
+

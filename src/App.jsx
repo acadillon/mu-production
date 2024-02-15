@@ -17,6 +17,17 @@ const App = () => {
   const [abouts, setAbouts] = useState([]);
   const [error, setError] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [hasScrolled, sethasScrolled] = useState(false);
+
+  window.addEventListener("scroll", function(){
+    if(window.scrollY==0){
+      // Scroll is top 
+      sethasScrolled(false);
+    } else {
+      // Had Scroll
+      sethasScrolled(true);
+    }
+  });
 
   // ** Datas about
   useEffect(() => {
@@ -45,17 +56,18 @@ const App = () => {
   return (
     <>
 
-      <div className="cover-wrapper">
-        {abouts.map(({ id, attributes }, index) => (
-          <div className="cover" key={id}>
-            <img src={'http://localhost:1337' + attributes.Cover.data.attributes.url} alt="Cover" onLoad={handleImageLoad}/>
-          </div>
-        ))}
-        {imageLoaded && <Header />}
-      </div>
+      {abouts.map(({ id, attributes }, index) => (
+        <div className="cover" key={id}>
+          <img src={'http://localhost:1337' + attributes.Cover.data.attributes.url} alt="Cover" onLoad={handleImageLoad} />
+        </div>
+      ))}
 
-      <h2 className='big-title'>Menu</h2>
-      <MaxiMenu />
+      {imageLoaded && <Header />}
+
+      <main className={hasScrolled ? 'scrolled' : ''}>
+        <MaxiMenu />
+      </main>
+
     </>
   )
 }

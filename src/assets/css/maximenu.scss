@@ -1,0 +1,26 @@
+// ------------------------------------------------------------
+// MAXIMENU
+// ------------------------------------------------------------
+
+#menu-btn {
+    font-size: 30px;
+    position: fixed;
+    bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.scrolled {
+    #menu-btn {
+        opacity: 0;
+        pointer-events: non;
+    }
+}
+
+h2#menu {
+    font-size: 30px;
+}
+
+.maximenu-wrapper {
+    padding-top: 15vh;
+}
+

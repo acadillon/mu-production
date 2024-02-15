@@ -1,12 +1,12 @@
-.cover-wrapper {
-    border: 1px solid blue;
-    overflow: hidden;
-    height: calc(100vh - 50px);
-}
+// ------------------------------------------------------------
+// HEADER
+// ------------------------------------------------------------
 
 .cover {
-    height: 80%;
-    border: 1px solid greenyellow;
+    height: 60vh;
+    padding: 20px;
+    padding-bottom: 10px;
+    
     img {
         height: 100%;
         width: auto;
@@ -14,35 +14,51 @@
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
-#mu-sticky--wrapper {
+.sticky-object {
     font-family: 'Piek';
     font-size: 20px;
-    border: 1px solid violet;
+    width: 100%;
 
-    div {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
+    position: sticky;
+    top: 20px;
 
-        span {
+    &#Mu{
+        padding-left: 20px;
+        padding-bottom: 6vh;
+    }
 
-            &#Diff,
-            &#Art {
-                grid-column: span 2;
-            }
+    &#Prodiff {
+        padding-left: 200px;
 
-            &#and {
-                font-family: Helvetica, Arial, sans-serif;
-            }
+
+        >div {
+            display: flex;
+            gap: 20px;
         }
     }
+
+    &#Diff {
+        white-space: nowrap;
+    }
+
+    &#Art {
+        white-space: nowrap;
+        padding-left: 600px;
+        padding-top: 6vh;
+
+    }
+
+    &#and {
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+
 }
 
 
-.menu-wrapper {
-    margin-left: 20px;
-}
+
