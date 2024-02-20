@@ -6,11 +6,11 @@
   margin: 0 auto;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
-main{
+main {
   padding: 0px 20px;
   padding-bottom: 0px;
 }
@@ -18,15 +18,31 @@ main{
 
 
 .accordeon-wrapper,
-.actus-wrapper{
-  border: 1px solid blue;
+.actus-wrapper {
+  /* border: 1px solid blue; */
   width: 100%;
 }
-.answer-container,
-.actu-content{
-  border: 1px solid violet;
+
+.answer-container{
+  /* border: 1px solid violet; */
   overflow: hidden;
   width: 100%;
   transition: height 1s ease;
 }
 
+.answer-aa{
+  overflow: hidden;
+  width: 100%;
+  transition: max-height 1s ease;
+}
+
+footer {
+  margin-top: 300px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  p{
+    font-family: 'Necto';
+    font-size: 12px;
+  }
+}

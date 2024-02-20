@@ -68,6 +68,11 @@ const App = () => {
         <MaxiMenu />
       </main>
 
+      <footer>
+        <p>MU production •2023</p>
+        <p>Web design and development: Alice CADILLON</p>
+      </footer>
+
     </>
   )
 }

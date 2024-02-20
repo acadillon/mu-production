@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import Work from '../Content/Work';
-import Actus from '../Content/Actus';
-import About from '../Content/About';
+import AaMenu from '../Content/AaMenu';
 
 // Import styles
 import '../../assets/css/maximenu.scss';
@@ -34,8 +33,8 @@ const MaxiMenu = ({ }) => {
 
     // ::: States :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     const [activeIndex, setActiveIndex] = useState(null);
-    const [aboutActive, setAboutActive] = useState(false);
-    const [actusActive, setActusActive] = useState(false);
+    // const [aboutActive, setAboutActive] = useState(false);
+    // const [actusActive, setActusActive] = useState(false);
     // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
@@ -44,22 +43,8 @@ const MaxiMenu = ({ }) => {
     const handleWorkClick = (index) => {
         setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
         // Fermer About et Actus lorsqu'un Work est ouvert
-        setAboutActive(false);
-        setActusActive(false);
-    };
-    // ::: Show About
-    const handleAboutClick = () => {
-        setAboutActive(!aboutActive);
-        // Fermer les Works et Actus lorsqu'About est ouvert
-        setActiveIndex(null);
-        setActusActive(false);
-    };
-    // ::: Show Actus
-    const handleActusClick = () => {
-        setActusActive(!actusActive);
-        // Fermer les Works et About lorsqu'Actus est ouvert
-        setActiveIndex(null);
-        setAboutActive(false);
+        // setAboutActive(false);
+        // setActusActive(false);
     };
     // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -73,20 +58,27 @@ const MaxiMenu = ({ }) => {
             <button id='menu-btn' onClick={handleMenuButtonClick}>MENU</button>
             <div className='maximenu-wrapper'>
                 <h2 id='menu'>MENU</h2>
-                <About isActive={aboutActive} onClick={handleAboutClick} />
-                <Actus isActive={actusActive} onClick={handleActusClick} />
+                <div className="maximenu">
+                    <AaMenu />
+                    {/* <div className="aa-wrapper">
+                        <About isActive={aboutActive} onClick={handleAboutClick} />
+                        <Actus isActive={actusActive} onClick={handleActusClick} />
+                    </div> */}
+                    
 
-                {works.map(({ id, attributes }, index) => (
-                    <Work
-                        key={index}
-                        title={attributes.Title}
-                        customHtml={attributes.CustomHtml}
-                        body={attributes.Body}
-                        sliderImages={attributes.Images.data}
-                        isOpen={activeIndex === index}
-                        onClick={() => handleWorkClick(index)}
-                    />
-                ))}
+                    {works.map(({ id, attributes }, index) => (
+                        <Work
+                            key={index}
+                            title={attributes.Title}
+                            customHtml={attributes.CustomHtml}
+                            body={attributes.Body}
+                            sliderImages={attributes.Images.data}
+                            isOpen={activeIndex === index}
+                            onClick={() => handleWorkClick(index)}
+                        />
+                    ))}
+                </div>
+
 
             </div>
         </>
